@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react';
 
 import {
+  Box,
+  Button,
+  Container,
   FormLabel,
+  Heading,
   Input,
-  Button
 } from '@chakra-ui/react'
 
 import api from '../../services/api';
 
-import Loader from '../../assets/loader.gif'
+import Loader from '../../assets/loading.gif'
 
 const App = () => {
   const [data, setData] = useState({});
@@ -27,7 +30,7 @@ const App = () => {
     .catch( e => console.error(e))
     .finally( () => setTimeout(() => {
       setIsLoad(false)
-    }, 2500))
+    }, 1000))
   }, [])
 
   const handleSubmit = (e) => {
@@ -53,12 +56,20 @@ const App = () => {
 
   return(
     <div className="home-component">
-      <h1>Joke</h1>
+      <h1><Heading>Joke</Heading></h1>
       <div>
         <form onSubmit={handleSubmit}>
-          <FormLabel>Pesquise sua piada</FormLabel>
-          <Input type="text" onChange={e => setSearchJoke(e.target.value)} />
-          <Button type="submit">Pesquisar</Button>
+          <Container centerContent>
+            <Box w='400px'>
+              <FormLabel>Pesquise sua piada</FormLabel>
+              <Input
+                type="text"
+                onChange={e => setSearchJoke(e.target.value)}
+                placeholder="search by category"
+                />
+            </Box>
+          </Container>
+          <Button colorScheme='teal' type="submit" className="btn">Pesquisar</Button>
         </form>
       </div>
       { !isSearch ? (

@@ -1,8 +1,14 @@
+import {
+  Box,
+} from '@chakra-ui/react';
+
 const Footer = () => {
   return(
-    <footer>
-      <h1>Footer</h1>
-    </footer>
+    <Box pt='80px'>
+      <footer className="footer">
+        <h1>Footer</h1>
+      </footer>
+    </Box>
   )
 }
 

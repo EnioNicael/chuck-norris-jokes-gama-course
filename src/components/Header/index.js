@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
-  Grid,
-  GridItem,
-  Container,
+  Flex,
+  Box,
   FormControl,
   FormLabel,
-  Select
+  Select,
+  Spacer,
 }  from '@chakra-ui/react'
 import Logo from '../../assets/logo.jpeg';
 
@@ -30,14 +30,15 @@ const Header = () => {
 
   return(
     <nav>
-      <Container maxW="container.xl">
-        <Grid templateColumns="repeat(5, 1fr)" gap={10}>
-          <GridItem colStart={1}>
+      <Box boxShadow='md' mb='20px'>
+        <Flex>
+          <Box p='5'>
             <Link to='/'>
               <img src={Logo} className="logo" alt="Logo" />
             </Link>
-          </GridItem>
-          <GridItem colStart={6} colEnd={12} h="150px">
+          </Box>
+          <Spacer />
+          <Box p='5'>
             <FormControl>
               <FormLabel>Selecione a categoria de sua piada</FormLabel>
               <Select onChange={handleCategory}>
@@ -46,9 +47,9 @@ const Header = () => {
                 ))}
               </Select>
             </FormControl>
-          </GridItem>
-        </Grid>
-      </Container>
+          </Box>
+        </Flex>
+      </Box>
     </nav>
   )
 }

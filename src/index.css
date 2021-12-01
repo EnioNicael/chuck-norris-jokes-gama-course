@@ -9,10 +9,6 @@
   justify-content:  center;
   align-items: center;
   height: 70vh;
-  /* background-image: url(./assets/loader.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover; */
 }
 
 .home-component{
@@ -22,12 +18,21 @@
 }
 
 .home-component .jokes{
-  height: 500px
+  padding: 20px 5px;
 }
 
+/* .footer {
+  bottom: 0;
+  position: fixed;
+} */
+
 nav .logo {
-  height: 150px;
+  height: 100px;
   width: auto;
+}
+
+.btn {
+  margin: 30px 0;
 }
 
 footer{

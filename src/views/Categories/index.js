@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import {
+  Container,
+  Heading,
+} from '@chakra-ui/react';
+
 import api from '../../services/api';
 
-import Loader from '../../assets/loader.gif';
+import Loader from '../../assets/loading.gif';
 
 const Categories = () => {
   const [joke, setJoke] = useState({});
@@ -24,19 +29,27 @@ const Categories = () => {
   if(isLoad){
     return(
       <div>
-        <img src={Loader} alt="loader" />
+        <Container centerContent>
+          <img src={Loader} alt="loader" />
+        </Container>
       </div>
     )
   }
 
   return (
-    <>
-      <h1>Categorias</h1>
-      <div>
-        <img src={joke?.icon_url} alt={joke?.value}/>
-        <h4>{joke?.value}</h4>
-      </div>
-    </>
+    <section>
+      {/* <Flex> */}
+        <Container centerContent>
+          <h1><Heading>Categorias</Heading></h1>
+        </Container>
+        <Container centerContent>
+          <div>
+            <img src={joke?.icon_url} alt={joke?.value}/>
+            <h4>{joke?.value}</h4>
+          </div>
+        </Container>
+      {/* </Flex> */}
+    </section>
   )
 }
 
